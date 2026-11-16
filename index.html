@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080c14">
+<meta name="description" content="The D.R.E.A.M Initiative researches the recording and materialization of dream environments.">
+<title>D.R.E.A.M Initiative</title>
+<style>
+:root {
+  --bg:#080c14; --panel:#0c1320; --panel2:#111b2a; --line:#202d40;
+  --text:#e1e7f0; --muted:#8291a8; --dim:#52627a; --accent:#91b4df;
+  --warning:#b49a72; --max:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.65}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+button:disabled{cursor:default}
+::selection{background:#91b4df;color:#080c14}
+.topline{height:2px;background:#91b4df;opacity:.65}
+header{height:76px;border-bottom:1px solid var(--line);background:rgba(9,11,13,.96);position:sticky;top:0;z-index:10}
+.nav{max-width:var(--max);height:100%;padding:0 28px;margin:auto;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:29px;height:29px;border:1px solid #7189a8;display:grid;place-items:center;color:#b8cce8;font-size:14px;font-weight:700;letter-spacing:0}
+.brand-name{display:block;font-size:11px;font-weight:700;letter-spacing:.17em;line-height:1.35}
+.brand-sub{display:block;font-size:8px;color:var(--dim);letter-spacing:.19em;margin-top:7px;line-height:1.35}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-status{display:flex;align-items:center;gap:8px;color:#91a8c8;font-size:8px;letter-spacing:.15em;text-transform:uppercase}
+.status-dot{width:5px;height:5px;border-radius:50%;background:#91b4df;box-shadow:0 0 8px #91b4df}
+.wrap{max-width:var(--max);padding-left:28px;padding-right:28px;margin:auto}
+.hero{min-height:570px;display:flex;align-items:center;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:8%;top:15%;width:390px;height:390px;border:1px solid rgba(145,180,223,.07);border-radius:50%;box-shadow:0 0 0 55px rgba(145,180,223,.018),0 0 0 110px rgba(145,180,223,.012);pointer-events:none}
+.hero-inner{width:100%;position:relative;z-index:1;padding-top:70px;padding-bottom:76px}
+.kicker{font-size:9px;letter-spacing:.23em;text-transform:uppercase;color:var(--muted)}
+.kicker span{color:var(--accent)}
+h1{font-size:clamp(42px,6vw,68px);font-weight:400;line-height:1.05;letter-spacing:-.055em;max-width:660px;margin:26px 0 23px}
+h1 em{font-style:normal;color:#a9c3e6}
+.hero-copy{max-width:445px;color:#8999b1;font-size:13px;line-height:1.9;margin:0}
+.hero-bottom{display:flex;align-items:center;gap:27px;margin-top:42px}
+.button{display:inline-flex;align-items:center;justify-content:center;min-height:43px;padding:0 19px;border:1px solid #607b9e;color:#dce7f5;font-size:9px;letter-spacing:.16em;text-transform:uppercase;background:transparent;cursor:pointer;transition:.2s}
+.button:hover{background:#dce7f5;color:#080c14}
+.text-link{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#8292aa}
+.text-link:hover{color:var(--text)}
+.hero-index{position:absolute;right:28px;bottom:35px;color:#3f494e;font-size:8px;letter-spacing:.18em}
+.section{padding-top:92px;padding-bottom:92px;border-bottom:1px solid var(--line)}
+.section-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#8298b8}
+.section-label b{font-weight:400;color:var(--accent);margin-right:12px}
+h2{font-size:29px;line-height:1.2;font-weight:400;letter-spacing:-.035em;margin:18px 0 18px}
+.intro{max-width:530px;color:#849096;font-size:13px;line-height:1.9}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;margin-top:38px}
+.body-copy{max-width:440px;color:#8a969b;font-size:12px;line-height:2}
+.body-copy p{margin:0 0 16px}
+.meta-list{border-top:1px solid var(--line)}
+.meta-row{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--line);font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.meta-row span:first-child{color:#5e6a70}
+.meta-row span:last-child{color:#b7c9e2;text-align:right}
+.research{background:#0a1220}
+.research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:42px}
+.research-item{border-top:1px solid #293950;padding-top:17px}
+.research-item .num{font-size:9px;color:#8aa6cc;letter-spacing:.16em}
+.research-item h3{font-size:14px;font-weight:500;margin:17px 0 9px}
+.research-item p{font-size:11px;color:#7f90aa;line-height:1.9;margin:0;max-width:260px}
+.product{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:center}
+.product-art{height:390px;background:#0d1726;border:1px solid #26364c;display:grid;place-items:center;position:relative;overflow:hidden}
+.product-art:before,.product-art:after{content:"";position:absolute;border:1px solid rgba(145,180,223,.1);border-radius:50%;width:260px;height:260px}
+.product-art:after{width:320px;height:320px}
+.device-svg{width:min(88%,370px);height:auto;position:relative;z-index:1;overflow:visible;filter:drop-shadow(0 22px 30px rgba(0,0,0,.35))}
+.device-svg .wire{fill:none;stroke:#9ab1d2;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 0}
+.device-svg .wire-detail{fill:none;stroke:#344b68;stroke-width:1;stroke-linecap:round;stroke-dasharray:3 2}
+.device-svg .pad{fill:#1b2a40;stroke:#8298b8;stroke-width:1.1;stroke-linejoin:miter}
+.device-svg .pad-inner{fill:#101a2a;stroke:#536d8d;stroke-width:.9;stroke-linejoin:miter}
+.device-svg .core-glow{fill:#91b4df;opacity:.12}
+.device-svg .core{fill:#779ac7;stroke:#c4d8f2;stroke-width:1.2}
+.device-svg .mark{font:6px Arial,sans-serif;letter-spacing:1.5px;fill:#c4d1e5}
+.art-caption{position:absolute;bottom:16px;left:17px;color:#586b86;font-size:8px;letter-spacing:.16em;text-transform:uppercase}
+.product-copy .product-code{font-size:9px;color:#8298b8;letter-spacing:.2em;text-transform:uppercase}
+.product-copy h2{font-size:35px;margin:15px 0 13px}
+.product-copy>p{font-size:12px;color:#849096;line-height:1.9;max-width:440px}
+.use-instructions{max-width:440px;margin:21px 0 24px;padding:15px 17px;border:1px solid #252f32;background:#0a1422}
+.instructions-heading{font-size:9px;color:#b7c9e2;letter-spacing:.16em;text-transform:uppercase;margin-bottom:9px}
+.use-instructions ol{margin:0;padding-left:18px;color:#7f8b90;font-size:10px;line-height:1.8}
+.use-instructions li{padding-left:4px;margin:3px 0}
+.product-data{border-top:1px solid var(--line);margin:27px 0 23px}
+.product-data .meta-row{padding:12px 0}
+.stock{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--warning);margin-bottom:15px}
+.purchase{width:100%;max-width:245px}
+.small-note{font-size:9px;color:#505c62;margin-top:12px}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:55px;margin-top:35px}
+.faq-item{border-top:1px solid var(--line);padding-top:15px}
+.faq-item h3{font-size:11px;font-weight:500;color:#c3ccc6;margin:0 0 9px}
+.faq-item p{font-size:11px;color:#758187;line-height:1.8;margin:0}
+footer{padding:26px 0;background:#070b12}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.footer-left{font-size:9px;color:#71819a;letter-spacing:.13em}
+.footer-right{font-size:8px;color:#485a73;letter-spacing:.12em}
+.overlay{position:fixed;inset:0;background:rgba(2,5,11,.97);backdrop-filter:blur(8px);z-index:50;display:none;align-items:center;justify-content:center;text-align:center;padding:25px;outline:none}
+.overlay.show{display:flex;animation:darken .45s ease both}
+.overlay-panel{width:min(100%,430px);padding:38px 34px;border:1px solid #263a55;background:linear-gradient(145deg,#0d1727,#080e19);box-shadow:0 24px 90px rgba(0,0,0,.42);position:relative}
+.overlay-panel:before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:#91b4df;opacity:.75}
+.overlay-mark{font-size:10px;letter-spacing:.24em;color:#a9c3e6;margin-bottom:34px}
+.loading-view,.complete-view{transition:opacity .35s ease,transform .35s ease}
+.loading-view h2,.complete-view h2{font-size:17px;font-weight:400;letter-spacing:.16em;color:#e1e7f0;margin:0 0 10px}
+.overlay-copy{font-size:9px;letter-spacing:.12em;color:#8291a8;line-height:1.9;margin:0}
+.loader-track{height:2px;background:#26364c;margin:27px 0 13px;overflow:hidden}
+.loader-bar{height:100%;width:38%;background:#91b4df;box-shadow:0 0 12px rgba(145,180,223,.65);animation:loading 1.35s ease-in-out infinite}
+.loading-details{display:flex;justify-content:space-between;gap:12px;color:#607895;font-size:8px;letter-spacing:.13em;text-transform:uppercase}
+.loading-indicator{display:inline-block;width:6px;height:6px;border-radius:50%;background:#91b4df;box-shadow:0 0 9px #91b4df;margin-right:8px;animation:pulse 1s ease-in-out infinite}
+.complete-view{display:none}
+.complete-view h2{margin:0 0 18px;color:#c5d9f3}
+.complete-view .thanks{font-size:10px;letter-spacing:.12em;color:#a8b8ce;line-height:2;margin:0}
+.complete-view .complete-rule{width:34px;height:1px;background:#91b4df;margin:23px auto 0}
+@keyframes darken{from{opacity:0}to{opacity:1}}
+@keyframes loading{0%{transform:translateX(-110%)}100%{transform:translateX(290%)}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+@media(max-width:700px){
+ header{height:68px}.nav{padding:0 19px}.nav-links{gap:15px}.nav-links a:not(:last-child){display:none}.nav-status{display:none}
+ .wrap{padding-left:21px;padding-right:21px}.hero{min-height:530px}.hero-inner{padding-top:85px;padding-bottom:85px}
+ .hero:after{right:-210px;top:20%;width:330px;height:330px}h1{font-size:48px}
+ .section{padding-top:70px;padding-bottom:70px}.about-grid,.product{grid-template-columns:1fr;gap:30px}
+ .research-grid{grid-template-columns:1fr;gap:27px}.product-art{height:310px}.product-copy h2{font-size:30px}
+ .faq{grid-template-columns:1fr;gap:28px}.footer-inner{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:380px){
+ .nav{padding:0 14px}.brand{gap:9px}.brand-mark{width:26px;height:26px}.brand-name{font-size:9px}.brand-sub{font-size:7px;letter-spacing:.14em}.nav-links{gap:8px}.nav-links a{font-size:8px}
+ h1{font-size:clamp(39px,12vw,46px)}.hero-bottom{align-items:flex-start;flex-direction:column;gap:17px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<header>
+  <div class="nav">
+    <a class="brand" href="#top">
+      <span class="brand-mark">D</span>
+      <span><span class="brand-name">D.R.E.A.M INITIATIVE</span><span class="brand-sub">RESEARCH DIVISION / 01</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#about">Overview</a>
+      <a href="#research">Research</a>
+      <a href="#product">Product</a>
+    </nav>
+    <div class="nav-status"><i class="status-dot"></i> Systems operational</div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="kicker"><span>Independent research</span> / Est. 2016</div>
+      <h1>Extending the limits of <em>human experience.</em></h1>
+      <p class="hero-copy">The D.R.E.A.M Initiative develops technologies for the recording, materialization and observation of subconscious environments.</p>
+      <div class="hero-bottom">
+        <a class="button" href="#about">Explore the initiative <span style="margin-left:18px">↗</span></a>
+        <a class="text-link" href="#product">View product 001</a>
+      </div>
+      <div class="hero-index">D.R.E.A.M / PUBLIC INFORMATION PORTAL</div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="about">
+    <div class="section-label"><b>01</b> Overview</div>
+    <h2>Researching what exists<br> beyond the waking state.</h2>
+    <p class="intro">We are a private research initiative focused on the interpretation and materialization of dream environments. Our work explores the space between human cognition and observable reality.</p>
+    <div class="about-grid">
+      <div class="body-copy">
+        <p>Dreams are complex, immersive experiences. Until recently, they have remained difficult to preserve, study or revisit.</p>
+        <p>Our research is dedicated to changing that. Through proprietary materialization systems, the Initiative is developing a method of translating subconscious environments into viewable recordings.</p>
+        <p>We believe the next frontier of exploration may not be somewhere we travel to, but somewhere we have already been.</p>
+      </div>
+      <div class="meta-list">
+        <div class="meta-row"><span>Organization</span><span>D.R.E.A.M Initiative</span></div>
+        <div class="meta-row"><span>Established</span><span>2016</span></div>
+        <div class="meta-row"><span>Primary field</span><span>Dream materialization</span></div>
+        <div class="meta-row"><span>Access level</span><span>Public information</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section research" id="research">
+    <div class="wrap">
+      <div class="section-label"><b>02</b> Research areas</div>
+      <h2>From thought to observation.</h2>
+      <p class="intro">Our work is organized around three areas of ongoing development.</p>
+      <div class="research-grid">
+        <article class="research-item"><div class="num">01 / INTERPRETATION</div><h3>Subconscious Mapping</h3><p>Identifying and interpreting the structures, spaces and patterns present in dream states.</p></article>
+        <article class="research-item"><div class="num">02 / MATERIALIZATION</div><h3>Environmental Translation</h3><p>Converting interpreted dream data into stable, observable environments.</p></article>
+        <article class="research-item"><div class="num">03 / RECORDING</div><h3>Visual Documentation</h3><p>Preserving materialized environments as footage for later review and analysis.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="product">
+    <div class="section-label"><b>03</b> Available technology</div>
+    <div class="product" style="margin-top:38px">
+      <div class="product-art">
+        <svg class="device-svg" viewBox="0 0 360 220" role="img" aria-label="An experimental forehead-mounted dream sensor with exposed wiring and separate contact pads">
+          <defs>
+            <linearGradient id="pdm-shell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3d506b"/><stop offset=".5" stop-color="#17243a"/><stop offset="1" stop-color="#2b405d"/></linearGradient>
+            <radialGradient id="pdm-core"><stop offset="0" stop-color="#d8e6f8"/><stop offset=".38" stop-color="#8eadd5"/><stop offset="1" stop-color="#263d5d"/></radialGradient>
+          </defs>
+          <!-- Exposed leads, deliberately hand-routed rather than moulded into a smooth casing. -->
+          <g class="wire">
+            <path d="M143 100 C111 89 104 59 78 48 S43 49 29 75"/><path d="M141 121 C109 132 104 158 76 171 L58 185"/>
+            <path d="M217 99 C249 86 258 58 284 48 S317 53 333 76"/><path d="M219 121 C251 132 257 158 284 171 L302 185"/>
+          </g>
+          <g class="wire-detail">
+            <path d="M143 100 C111 89 104 59 78 48 S43 49 29 75"/><path d="M141 121 C109 132 104 158 76 171 L58 185"/>
+            <path d="M217 99 C249 86 258 58 284 48 S317 53 333 76"/><path d="M219 121 C251 132 257 158 284 171 L302 185"/>
+            <path d="M93 57 l-7 -9 M105 68 l-7 -8 M268 58 l7 -9 M256 69 l7 -8"/>
+          </g>
+          <!-- Flat, slightly irregular contact tabs. -->
+          <g transform="translate(28 78) rotate(20)"><path class="pad" d="M-13 -20 L11 -22 L16 -14 L13 17 L5 22 L-13 16 Z"/><path class="pad-inner" d="M-7 -13 L7 -15 L10 -9 L8 11 L2 15 L-7 10 Z"/><circle cx="1" cy="0" r="2.7" fill="#779ac7"/></g>
+          <g transform="translate(332 78) rotate(-20)"><path class="pad" d="M-13 -20 L11 -22 L16 -14 L13 17 L5 22 L-13 16 Z"/><path class="pad-inner" d="M-7 -13 L7 -15 L10 -9 L8 11 L2 15 L-7 10 Z"/><circle cx="1" cy="0" r="2.7" fill="#779ac7"/></g>
+          <g transform="translate(58 185) rotate(-28)"><path class="pad" d="M-10 -15 L8 -17 L13 -9 L10 13 L-7 16 L-13 8 Z"/><path class="pad-inner" d="M-6 -9 L6 -11 L8 -6 L6 9 L-6 10 Z"/></g>
+          <g transform="translate(302 185) rotate(28)"><path class="pad" d="M-10 -15 L8 -17 L13 -9 L10 13 L-7 16 L-13 8 Z"/><path class="pad-inner" d="M-6 -9 L6 -11 L8 -6 L6 9 L-6 10 Z"/></g>
+          <!-- Uneven machined housing with visible fasteners and an exposed central optic. -->
+          <path d="M145 69 L214 66 L228 81 L225 135 L211 151 L146 148 L132 135 L134 82 Z" fill="url(#pdm-shell)" stroke="#91a8c8" stroke-width="1.4"/>
+          <path d="M143 76 L211 73 L220 84 L218 132 L207 143 L149 141 L140 132 L141 85 Z" fill="none" stroke="#526b8c" stroke-width=".9"/>
+          <path d="M151 83 L160 79 M205 137 L213 130 M137 121 L145 126" fill="none" stroke="#a4b8d5" stroke-width=".8" opacity=".65"/>
+          <circle cx="147" cy="83" r="2.2" fill="#8da7ca"/><path d="M146 81 l2 4 M212 135 l-4 -2" stroke="#101a2a" stroke-width=".8"/>
+          <circle class="core-glow" cx="180" cy="106" r="35"/><path d="M180 82 L201 94 L199 119 L180 131 L160 119 L159 94 Z" fill="#111f34" stroke="#607b9e" stroke-width="1.2"/>
+          <circle cx="180" cy="106" r="16" fill="url(#pdm-core)"/><circle cx="180" cy="106" r="4" fill="#dce7d7" opacity=".9"/>
+          <path d="M180 82 L180 75 M159 94 L151 90 M201 94 L209 90" stroke="#9ab2d4" stroke-width="1"/>
+          <text class="mark" x="180" y="143" text-anchor="middle">D.R.E.A.M</text>
+          <path d="M119 104 l10 -3 M231 104 l10 3" stroke="#a9c3e6" stroke-width="1"/>
+        </svg>
+        <div class="art-caption">PDM-01 / Portable unit</div>
+      </div>
+      <div class="product-copy">
+        <div class="product-code">Product 001 / PDM-01</div>
+        <h2>Portable Dream Materializer</h2>
+        <p>A compact personal device designed to materialize and record dream environments through the D.R.E.A.M proprietary process.</p>
+        <p>Designed for straightforward operation. No specialist experience is required.</p>
+        <div class="use-instructions">
+          <div class="instructions-heading">Session overview</div>
+          <ol>
+            <li>Check the unit status in the supplied control interface.</li>
+            <li>Select a recording profile before the session begins.</li>
+            <li>Start the scheduled capture sequence.</li>
+            <li>Review the completed footage through the viewing interface.</li>
+          </ol>
+        </div>
+        <div class="product-data">
+          <div class="meta-row"><span>Model</span><span>PDM-01</span></div>
+          <div class="meta-row"><span>Classification</span><span>Personal / Portable</span></div>
+          <div class="meta-row"><span>Safety review</span><span>Completed</span></div>
+          <div class="meta-row"><span>Availability</span><span>Limited release</span></div>
+        </div>
+        <div class="stock">● &nbsp; 1 unit remaining in stock</div>
+        <button class="button purchase" id="purchase" type="button">Purchase unit <span style="margin-left:20px">→</span></button>
+        <div class="small-note">Product availability is updated periodically.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="information">
+    <div class="section-label"><b>04</b> Additional information</div>
+    <h2>Frequently asked questions.</h2>
+    <div class="faq">
+      <div class="faq-item"><h3>What is dream materialization?</h3><p>A proprietary process developed by the Initiative to translate subconscious environments into viewable footage.</p></div>
+      <div class="faq-item"><h3>Is the device safe to use?</h3><p>All consumer units have undergone internal testing and professional review prior to release.</p></div>
+      <div class="faq-item"><h3>Do I need prior experience?</h3><p>No. The Portable Dream Materializer is designed for individual use and straightforward operation.</p></div>
+      <div class="faq-item"><h3>Can materialized footage be viewed again?</h3><p>Recorded output is retained for review through the supported viewing process.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-left">D.R.E.A.M INITIATIVE &nbsp; / &nbsp; RESEARCH DIVISION 01</div>
+    <div class="footer-right">PUBLIC PORTAL · REV. 04.16</div>
+  </div>
+</footer>
+
+<div class="overlay" id="blackout" role="dialog" aria-modal="true" aria-labelledby="request-title" aria-describedby="request-status" aria-hidden="true" tabindex="-1">
+  <div class="overlay-panel">
+    <div class="overlay-mark" id="request-title">D.R.E.A.M SECURE SYSTEM</div>
+    <div class="loading-view" id="loading-view">
+      <h2>PROCESSING REQUEST</h2>
+      <p class="overlay-copy"><span class="loading-indicator"></span>Establishing secure connection</p>
+      <div class="loader-track"><div class="loader-bar"></div></div>
+      <div class="loading-details"><span>REQUEST ID / PDM-01</span><span>PLEASE WAIT</span></div>
+    </div>
+    <div class="complete-view" id="complete-view" aria-live="polite">
+      <h2>REQUEST RECEIVED</h2>
+      <p class="thanks">THANK YOU FOR YOUR INTEREST IN THE<br>D.R.E.A.M INITIATIVE.</p>
+      <div class="complete-rule"></div>
+    </div>
+  </div>
+</div>
+<noscript><p class="small-note" style="text-align:center;padding:12px">The purchase animation requires JavaScript to be enabled.</p></noscript>
+<script>
+(function () {
+  const purchaseButton = document.getElementById('purchase');
+  const overlay = document.getElementById('blackout');
+  const loadingView = document.getElementById('loading-view');
+  const completeView = document.getElementById('complete-view');
+  if (!purchaseButton || !overlay || !loadingView || !completeView) return;
+
+  purchaseButton.addEventListener('click', function () {
+    if (overlay.classList.contains('show')) return;
+    overlay.classList.add('show');
+    overlay.setAttribute('aria-hidden', 'false');
+    purchaseButton.disabled = true;
+    document.body.style.overflow = 'hidden';
+    overlay.focus();
+
+    window.setTimeout(function () {
+      loadingView.style.display = 'none';
+      completeView.style.display = 'block';
+    }, 3200);
+  });
+})();
+</script>
+</body>
+</html>
